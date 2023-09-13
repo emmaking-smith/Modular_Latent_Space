@@ -33,7 +33,7 @@ class Initialization:
         parser.add_argument('--message_passes', type=int, default=3)
         parser.add_argument('--pretrained_mpnn_path', type=str, default='../MPNN/big_mpnn_no_delocalised_no_unknown_model')
         parser.add_argument('--save_path', '-s', type=str)
-        parser.add_argument('--split', type=str, help='Options are: nucleophile, electrophile, catalyst, ligand.')
+        parser.add_argument('--split', type=str, help='Options are: nucleophile, electrophile')
         return parser.parse_args()
 
     def logging_setup(self):
@@ -115,18 +115,7 @@ def main():
     logger.debug('Data Loaded.')
 
     # Dataframe splits.
-    if split in ['catalyst', 'ligand']:
-        most_common_catalysts, most_common_ligands = ranking_catalysts_and_ligands(suzuki_rxns)
-        if split == 'catalyst':
-            train_val_dict, test_dict = split_on_cat_lig(suzuki_rxns, most_common_catalysts[
-                0])  # if using multiple electrophile splits it's 0:35, and 35:
-            train_dict, val_dict = split_on_cat_lig(train_val_dict, most_common_catalysts[1])
-        else:
-            train_val_dict, test_dict = split_on_cat_lig(suzuki_rxns, most_common_ligands[
-                0])  # if using multiple electrophile splits it's 0:35, and 35:
-            train_dict, val_dict = split_on_cat_lig(train_val_dict, most_common_ligands[1])
-
-    elif split in ['nucleophile', 'electrophile']:
+    if split in ['nucleophile', 'electrophile']:
         most_common_nucleophiles, most_common_electrophiles = ranking_nucleophiles_and_electrophiles(suzuki_rxns)
         if split == 'nucleophlie':
             train_val_dict, test_dict = split_on_reactant(suzuki_rxns, most_common_nucleophiles[0])
@@ -136,7 +125,7 @@ def main():
             train_dict, val_dict = split_on_multiple_electrophiles(train_val_dict, most_common_electrophiles[35:])
 
     else:
-        assert split in ['nucleophile', 'electrophile', 'catalyst', 'ligand']
+        assert split in ['nucleophile', 'electrophile']
 
     train_dataset = Suzuki_USPTO_Rxns(train_dict, longest_boronic_acid, longest_halide, longest_catalyst, longest_ligand)
     val_dataset = Suzuki_USPTO_Rxns(val_dict, longest_boronic_acid, longest_halide, longest_catalyst, longest_ligand)
