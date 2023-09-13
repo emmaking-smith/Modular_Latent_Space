@@ -21,7 +21,7 @@ To run a prediction with Crystal-Tox, run the following command:
 
 ```python toxicity/predict_toxicity.py --path_to_toxicity_data {PATH TO TRAINING DATA} {PATH TO VALIDATION DATA} {PATH TO TESTING DATA}
 --save_path {PATH TO SAVE DIRECTORY}
-````
+```
 
 The training, validation, and testing data should be pickle files of the form observed in `toxicity/data/new_compounds_for_testing_TDC.pickle`. Default training, validation, and testing data is from TDC. 
 
