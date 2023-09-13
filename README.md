@@ -29,7 +29,7 @@ The training, validation, and testing data should be pickle files of the form ob
 Predictions will be saved out as a pickle file as `preds.pickle` in your `{PATH TO SAVE DIRECTORY}`. The trained model dict will be saved out as `model` in your `{PATH TO SAVE DIRECTORY}`.
 
 ## Suzuki
-Modules and code associated with LD50 predictions of small molecule compounds.
+Modules and code associated with Suzuki coupling yield predictions.
 
 > [!Note] 
 > For [Yield-BERT](https://rxn4chemistry.github.io/rxn_yields/) and [GraphRXN](https://github.com/jidushanbojue/GraphRXN/tree/master) comparisons, please create separate conda environments as directed by the associated documentation!
