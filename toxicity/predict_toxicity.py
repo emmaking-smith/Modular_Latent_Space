@@ -21,7 +21,7 @@ class Initialization:
 
     def init_args(self):
         parser = argparse.ArgumentParser()
-        parser.add_argument('--path_to_toxicity_data', type=list,
+        parser.add_argument('--path_to_toxicity_data', nargs='+',
                             help='The path to the TDC LD50 toxicity train, val, and test pickle file.',
                             default=['data/TDC_toxicity_train.pickle',
                                      'data/TDC_toxicity_val.pickle',
