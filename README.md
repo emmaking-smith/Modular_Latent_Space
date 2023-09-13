@@ -2,6 +2,8 @@
 Code for associated paper as described in King-Smith *et al.*
 
 ## Getting Your Bearings
+Please use the following modules as a guide when setting up finetuning on your own tasks. Examples of regression (MAE) tasks can be found in the Toxicity, Buchwald, and Suzuki directories. An example of a classification task can be found in the Fragrance directory.
+
 ### MPNN:
 Modules and code associated with the base message passing neural network (MPNN).
 * The core message passing neural network used to pretrain on crystal structure data and for each finetuning task.
@@ -17,6 +19,7 @@ Modules and code associated with LD50 predictions of small molecule compounds.
 
 ### Suzuki:
 Modules and code associated with LD50 predictions of small molecule compounds.
+
 **Note: For [Yield-BERT](https://rxn4chemistry.github.io/rxn_yields/) and [GraphRXN](https://github.com/jidushanbojue/GraphRXN/tree/master) comparisons, please create separate conda environments as directed by the associated documentation!** 
 * Historical literature Suzuki coupling data from USPTO (2 x txt files).
 * Baseline machine learning predictions.
@@ -26,6 +29,7 @@ Modules and code associated with LD50 predictions of small molecule compounds.
 
 ### Buchwald:
 Modules and code associated with the Buchwald-Hartwig yield predictions.
+
 **Note: For [Yield-BERT](https://rxn4chemistry.github.io/rxn_yields/) and [GraphRXN](https://github.com/jidushanbojue/GraphRXN/tree/master) comparisons, please create separate conda environments as directed by the associated documentation!** 
 * The high throughput experimentation Buchwald-Hartwig data from Ahneman *et al.* (csv).
 * Baseline machine learning predictions.
