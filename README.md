@@ -4,12 +4,12 @@ Code for associated paper as described in King-Smith *et al.*
 ## Getting Your Bearings
 Please use the following modules as a guide when setting up finetuning on your own tasks. Examples of regression (MAE) tasks can be found in the Toxicity, Buchwald, and Suzuki directories. An example of a classification task can be found in the Fragrance directory.
 
-### MPNN:
+## MPNN:
 Modules and code associated with the base message passing neural network (MPNN).
 * The core message passing neural network used to pretrain on crystal structure data and for each finetuning task.
 * The pretrained weights and biases for the modular latent space.
 
-### Toxicity:
+## Toxicity:
 Modules and code associated with LD50 predictions of small molecule compounds.
 * Data from the Therapeutic Data Commons [TDC](https://tdcommons.ai/single_pred_tasks/tox/#acute-toxicity-ld50) (3 x pickle files).
 * Toxicity data on non-therapeutic small molecules. (1 x pickle file).
@@ -25,7 +25,7 @@ The training, validation, and testing data should be pickle files of the form ob
 
 Predictions will be saved out as a pickle file as `preds.pickle` in your `{PATH TO SAVE DIRECTORY}`. The trained model dict will be saved out as `model` in your `{PATH TO SAVE DIRECTORY}`.
 
-### Suzuki:
+## Suzuki:
 Modules and code associated with LD50 predictions of small molecule compounds.
 
 **Note: For [Yield-BERT](https://rxn4chemistry.github.io/rxn_yields/) and [GraphRXN](https://github.com/jidushanbojue/GraphRXN/tree/master) comparisons, please create separate conda environments as directed by the associated documentation!** 
@@ -43,7 +43,7 @@ The data should be texts files of the form observed in `suzuki/suzuki_from_arom_
 
 Predictions will be saved out as a pickle file as `preds.pickle` in your `{PATH TO SAVE DIRECTORY}`. The trained model dict will be saved out as `model` in your `{PATH TO SAVE DIRECTORY}`.
 
-### Buchwald:
+## Buchwald:
 Modules and code associated with the Buchwald-Hartwig yield predictions.
 
 **Note: For [Yield-BERT](https://rxn4chemistry.github.io/rxn_yields/) and [GraphRXN](https://github.com/jidushanbojue/GraphRXN/tree/master) comparisons, please create separate conda environments as directed by the associated documentation!** 
@@ -61,7 +61,7 @@ The data should be a csv file of the form observed in `buchwald/doyle_buchwald_d
 
 Predictions will be saved out as a pickle file as `preds.pickle` in your `{PATH TO SAVE DIRECTORY}`. The trained model dict will be saved out as `model` in your `{PATH TO SAVE DIRECTORY}`.
 
-### Fragrance:
+## Fragrance:
 Modules and code associated with multiclass and multilabel odor class predictions of small molecules.
 * Pyrfume data (1 x pickle file).
 * AI Crowd enantiomer data (1 x pickle file).
