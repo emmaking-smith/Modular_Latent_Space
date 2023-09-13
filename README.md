@@ -17,6 +17,13 @@ Modules and code associated with LD50 predictions of small molecule compounds.
 * Dataset cleanup, MPNN setup, and preparation for pytorch dataloaders.
 * Module to run Crystal-Tox.
 
+To run a prediction with Crystal-Tox, run the following command:
+`python toxicity/predict_toxicity.py --path_to_toxicity_data {PATH TO TRAINING DATA} {PATH TO VALIDATION DATA} {PATH TO TESTING DATA} --save_path {PATH TO SAVE DIRECTORY}`
+
+The training, validation, and testing data should be pickle files of the form observed in `toxicity/data/new_compounds_for_testing_TDC.pickle`. Default training, validation, and testing data is from TDC. 
+
+Predictions will be saved out as a pickle file as `preds.pickle` in your `{PATH TO SAVE DIRECTORY}`. The trained model dict will be saved out as `model` in your `{PATH TO SAVE DIRECTORY}`.
+
 ### Suzuki:
 Modules and code associated with LD50 predictions of small molecule compounds.
 
@@ -27,15 +34,29 @@ Modules and code associated with LD50 predictions of small molecule compounds.
 * Module to run Crystal-Yield on Suzuki data.
 * Associated code for running comparisons with Yield-BERT and GraphRXN.
 
+To run a prediction with Crystal-Yield with Suzuki USPTO data, run the following command:
+`python suzuki/suzuki_yield_prediction.py --paths_to_parsed_suzuki_data {PATH TO DATA 1} {PATH TO DATA 2} --split {nucleophile --OR-- electrophile} --save_path {PATH TO SAVE DIRECTORY}`
+
+The data should be texts files of the form observed in `suzuki/suzuki_from_arom_USPTO_parsed_het.txt`. Default text data is from processed Suzuki USPTO reactions. The split refers to which unseen molecule(s) will be used for testing; the options are `nucleophile` or `electrophile` (case sensitive). 
+
+Predictions will be saved out as a pickle file as `preds.pickle` in your `{PATH TO SAVE DIRECTORY}`. The trained model dict will be saved out as `model` in your `{PATH TO SAVE DIRECTORY}`.
+
 ### Buchwald:
 Modules and code associated with the Buchwald-Hartwig yield predictions.
 
 **Note: For [Yield-BERT](https://rxn4chemistry.github.io/rxn_yields/) and [GraphRXN](https://github.com/jidushanbojue/GraphRXN/tree/master) comparisons, please create separate conda environments as directed by the associated documentation!** 
-* The high throughput experimentation Buchwald-Hartwig data from Ahneman *et al.* (csv).
+* The high throughput experimentation (HTE) Buchwald-Hartwig data from Ahneman *et al.* (csv).
 * Baseline machine learning predictions.
 * Dataset cleanup, MPNN setup, and preparation for pytorch dataloaders.
 * Module to run Crystal-Yield on Buchwald-Hartwig data.
 * Associated code for running comparisons with Yield-BERT and GraphRXN.
+
+To run a prediction with Crystal-Yield with HTE-style data, run the following command:
+`python buchwald/buchwald_yield_prediction.py --path_to_buchwald_data {PATH TO CSV FILE} --split {halide --OR-- base --OR-- ligand --OR-- additive} --test_mol_idx {INTEGER FROM 0-3 FOR halide, ligand, and additive. INTEGER FROM 0-2 FOR base} --save_path {PATH TO SAVE DIRECTORY}`
+
+The data should be a csv file of the form observed in `buchwald/doyle_buchwald_data.csv`. Default csv data is HTE data from Ahneman *et al.* The `split` and `test_mol_idx` point to which unseen molecule(s) will be used for testing; the options for the `split` are `halide`, `base`, `ligand`, or `additive` (case sensitive). Options for the `test_mol_idx` are 0-3 for `halide`, `ligand`, and `additive` splits and 0-2 for `base` splits.
+
+Predictions will be saved out as a pickle file as `preds.pickle` in your `{PATH TO SAVE DIRECTORY}`. The trained model dict will be saved out as `model` in your `{PATH TO SAVE DIRECTORY}`.
 
 ### Fragrance:
 Modules and code associated with multiclass and multilabel odor class predictions of small molecules.
@@ -46,6 +67,13 @@ Modules and code associated with multiclass and multilabel odor class prediction
 * Dataset cleanup, MPNN setup, and preparation for pytorch dataloaders.
 * Module to run Crystal-Olfaction on Pyrfume data.
 * Module to run Crystal-Olfaction on enantiomeric pairs.
+
+To run a prediction with Crystal-Olfaction with Pyrfume-style data, run the following command:
+`python fragrance/predict_fragrance.py --path_to_fragrance_data {PATH TO PYRFUME-STYLE PICKLE FILE} --fold {INTEGER FROM 0-4} --save_path {PATH TO SAVE DIRECTORY}`
+
+The data should be a pickle file of the form observed in `fragrance/data/pyrfume_enatiomer_pairs_removed.pickle`. Default pickle data is the Pyrfume data. The `fold` argument referrs to which fold in the 5-fold cross validation should be left out as the testing set. Options for `fold` are 0-4.
+
+Predictions will be saved out as a pickle file as `preds.pickle` in your `{PATH TO SAVE DIRECTORY}`. The trained model dict will be saved out as `model` in your `{PATH TO SAVE DIRECTORY}`.
 
 ## Dependencies:
 Run on python 3.7.
