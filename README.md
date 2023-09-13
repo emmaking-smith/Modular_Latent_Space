@@ -19,7 +19,10 @@ Modules and code associated with LD50 predictions of small molecule compounds.
 
 To run a prediction with Crystal-Tox, run the following command:
 
-```python toxicity/predict_toxicity.py --path_to_toxicity_data {PATH TO TRAINING DATA} {PATH TO VALIDATION DATA} {PATH TO TESTING DATA} --save_path {PATH TO SAVE DIRECTORY}```
+```
+python toxicity/predict_toxicity.py --path_to_toxicity_data {PATH TO TRAINING DATA} {PATH TO VALIDATION DATA} {PATH TO TESTING DATA}
+                                    --save_path {PATH TO SAVE DIRECTORY}
+```
 
 The training, validation, and testing data should be pickle files of the form observed in `toxicity/data/new_compounds_for_testing_TDC.pickle`. Default training, validation, and testing data is from TDC. 
 
@@ -37,7 +40,7 @@ Modules and code associated with LD50 predictions of small molecule compounds.
 
 To run a prediction with Crystal-Yield with Suzuki USPTO data, run the following command:
 
-`python suzuki/suzuki_yield_prediction.py --paths_to_parsed_suzuki_data {PATH TO DATA 1} {PATH TO DATA 2} --split {nucleophile --OR-- electrophile} --save_path {PATH TO SAVE DIRECTORY}`
+`python suzuki/suzuki_yield_prediction.py --paths_to_parsed_suzuki_data {PATH TO DATA 1} {PATH TO DATA 2} --split {nucleophile **OR** electrophile} --save_path {PATH TO SAVE DIRECTORY}`
 
 The data should be texts files of the form observed in `suzuki/suzuki_from_arom_USPTO_parsed_het.txt`. Default text data is from processed Suzuki USPTO reactions. The split refers to which unseen molecule(s) will be used for testing; the options are `nucleophile` or `electrophile` (case sensitive). 
 
