@@ -24,7 +24,7 @@ class Initialization:
 
     def init_args(self):
         parser = argparse.ArgumentParser()
-        parser.add_argument('--paths_to_parsed_suzuki_data', type=list, help='The paths to the parsed Suzuki text files.',
+        parser.add_argument('--paths_to_parsed_suzuki_data', nargs='+', help='The paths to the parsed Suzuki text files.',
                             default=['suzuki_from_arom_USPTO_parsed_het.txt', 'suzuki_from_arom_USPTO_parsed_homo.txt'])
         parser.add_argument('--epochs', type=int, default=100)
         parser.add_argument('--learning_rate', type=float, default=1e-4)
