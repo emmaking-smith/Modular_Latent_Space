@@ -30,7 +30,7 @@ class Initialization:
         parser.add_argument('--batch_size', type=int, default=64)
         parser.add_argument('--message_size', type=int, default=128)
         parser.add_argument('--message_passes', type=int, default=3)
-        parser.add_argument('--pretrained_mpnn_path', type=str, default='big_mpnn_no_delocalised_no_unknown_model')
+        parser.add_argument('--pretrained_mpnn_path', type=str, default='../MPNN/big_mpnn_no_delocalised_no_unknown_model')
         parser.add_argument('--save_path', '-s', type=str)
         parser.add_argument('--fold', type=int, help='Which fold from the 10-K-Fold do you want to validate on?')
         return parser.parse_args()
