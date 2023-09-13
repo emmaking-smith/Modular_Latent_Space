@@ -31,7 +31,8 @@ Predictions will be saved out as a pickle file as `preds.pickle` in your `{PATH 
 ## Suzuki
 Modules and code associated with LD50 predictions of small molecule compounds.
 
-**Note: For [Yield-BERT](https://rxn4chemistry.github.io/rxn_yields/) and [GraphRXN](https://github.com/jidushanbojue/GraphRXN/tree/master) comparisons, please create separate conda environments as directed by the associated documentation!** 
+>[!Note] 
+>For [Yield-BERT](https://rxn4chemistry.github.io/rxn_yields/) and [GraphRXN](https://github.com/jidushanbojue/GraphRXN/tree/master) comparisons, >please create separate conda environments as directed by the associated documentation!
 * Historical literature Suzuki coupling data from USPTO (2 x txt files).
 * Baseline machine learning predictions.
 * Dataset cleanup, MPNN setup, and preparation for pytorch dataloaders.
