@@ -1,4 +1,4 @@
-# Transfer Learning for a Modular and Generalizable Chemistry Latent Space
+# Transfer Learning for a Foundational Chemistry Model
 Code for associated paper as described in King-Smith *et al.*
 
 ## Getting Your Bearings
