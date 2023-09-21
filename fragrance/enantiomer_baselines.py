@@ -23,6 +23,8 @@ def make_inputs(df):
     inputs = np.array([])
     for smiles in df['canonical_smiles']:
         fps_i = make_fingerprint(smiles)
+        chiral_tag_i = make_chiral_tag(smiles)
+        fps_i = np.concatenate((fps_i, chiral_tag_i))
         inputs = np.concatenate((inputs, fps_i))
     return inputs.reshape([len(df), -1])
 
@@ -95,6 +97,17 @@ def make_top_N_pred_labels(test_df, all_preds):
         true_label = make_true_label(vocab, test_df.iloc[i])
         all_pred_labels.append(make_top_N_single_pred_label(vocab, pred, true_label))
     return all_pred_labels
+
+def make_chiral_tag(smiles):
+    mol = Chem.MolFromSmiles(smiles)
+    chiral_atoms = [str(x.GetChiralTag()) for x in mol.GetAtoms()]
+    if 'CHI_TETRAHEDRAL_CW' in chiral_atoms:
+        chiral_tag = np.array([1, 0, 0])
+    elif 'CHI_TETRAHEDRAL_CCW' in chiral_atoms:
+        chiral_tag = np.array([0, 1, 0])
+    else:
+        chiral_tag = np.array([0, 0, 1])
+    return chiral_tag
 
 def main():
     # args = init_args()

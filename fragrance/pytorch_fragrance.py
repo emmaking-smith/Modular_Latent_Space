@@ -242,12 +242,29 @@ class Odor_Classification(Dataset):
         one_hot_fragrance = np.array(one_hot_fragrance).astype('int')
         return one_hot_fragrance
 
+    def make_chiral_tag(self, features_vector, canonical_smiles):
+        features_vector = np.array(features_vector)
+        mol = Chem.MolFromSmiles(canonical_smiles)
+        possible_chirality = ['CHI_TETRAHEDRAL_CW', 'CHI_TETRAHEDRAL_CCW', 'CHI_UNSPECIFIED']
+        atom_tags = []
+        for atom in mol.GetAtoms():
+            tag = str(atom.GetChiralTag())
+            one_hot_tag = [int(x == tag) for x in possible_chirality]
+            atom_tags.append(one_hot_tag)
+        padding = [[0, 0, 0]] * (features_vector.shape[0] - mol.GetNumHeavyAtoms())
+        padding = np.array(padding).reshape([-1, 3])
+        atom_tags = np.array(atom_tags).reshape([-1, 3])
+        atom_tags = np.concatenate((atom_tags, padding))
+        features_vector = np.concatenate((features_vector, atom_tags), axis=1)
+        return features_vector
+
     def __getitem__(self, index):
 
         smiles = self.df.loc[index, 'canonical_smiles']
 
         # Creating the features vectors.
         mol_features, mol_matrices = self.single_molecule_matrices_and_features_workflow(smiles, self.longest_molecule)
+        mol_features = self.make_chiral_tag(mol_features, smiles)
         fragrance_classes = self.extract_fragrance_class(self.df.iloc[index])
         mol_features = torch.tensor(mol_features).float()
         mol_matrices = torch.tensor(mol_matrices).float()
