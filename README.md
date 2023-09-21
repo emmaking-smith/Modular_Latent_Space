@@ -101,7 +101,7 @@ Predictions will be saved out as a pickle file as `preds.pickle` in your `{PATH 
 Run on python 3.7.
 * numpy==1.21.5
 * pandas==1.3.5
-* sklearn==1.0.2
+* scikit-learn==1.0.2
 * rdkit==2020.09.1
 * torch==1.10.0+cu113
 * [networkx==1.11](https://pypi.org/project/networkx/)
