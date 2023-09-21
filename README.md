@@ -1,5 +1,5 @@
 # Transfer Learning for a Foundational Chemistry Model
-Code for associated paper as described in (King-Smith *et al.*)[https://chemrxiv.org/engage/chemrxiv/article-details/6501ed1a99918fe537e49e59]
+Code for associated paper as described in [King-Smith *et al.*](https://chemrxiv.org/engage/chemrxiv/article-details/6501ed1a99918fe537e49e59)
 
 ## Getting Your Bearings
 Please use the following modules as a guide when setting up finetuning on your own tasks. Examples of regression (MAE) tasks can be found in the Toxicity, Buchwald, and Suzuki directories. An example of a classification task can be found in the Fragrance directory.
