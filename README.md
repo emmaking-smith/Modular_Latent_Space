@@ -4,6 +4,8 @@ Code for associated paper as described in [King-Smith *et al.*](https://chemrxiv
 ## Getting Your Bearings
 Please use the following modules as a guide when setting up finetuning on your own tasks. Examples of regression (MAE) tasks can be found in the Toxicity, Buchwald, and Suzuki directories. An example of a classification task can be found in the Fragrance directory.
 
+We have a [user's guide](https://github.com/emmaking-smith/Modular_Latent_Space/blob/master/User_Guide.pdf) (User_Guide.pdf) that will walk users through transfer learning from the foundational model to Buchwald-Hartwig yield prediction using Ahneman *et al.*'s data.
+
 ## MPNN
 Modules and code associated with the base message passing neural network (MPNN).
 * The core message passing neural network used to pretrain on crystal structure data and for each finetuning task.
