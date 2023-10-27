@@ -17,10 +17,10 @@ Modules and code associated with LD50 predictions of small molecule compounds.
 * Dataset cleanup, MPNN setup, and preparation for pytorch dataloaders.
 * Module to run Crystal-Tox.
 
-To run a prediction with Crystal-Tox, run the following command:
+To run a prediction with Crystal-Tox, run the following command in the toxicity directory:
 
 ```
-python toxicity/predict_toxicity.py --path_to_toxicity_data {PATH TO TRAINING DATA} {PATH TO VALIDATION DATA} {PATH TO TESTING DATA}
+python predict_toxicity.py --path_to_toxicity_data {PATH TO TRAINING DATA} {PATH TO VALIDATION DATA} {PATH TO TESTING DATA}
                                     --save_path {PATH TO SAVE DIRECTORY}
 ```
 
@@ -39,10 +39,10 @@ Modules and code associated with Suzuki coupling yield predictions.
 * Module to run Crystal-Yield on Suzuki data.
 * Associated code for running comparisons with Yield-BERT and GraphRXN.
 
-To run a prediction with Crystal-Yield with Suzuki USPTO data, run the following command:
+To run a prediction with Crystal-Yield with Suzuki USPTO data, run the following command in the suzuki directory:
 
 ```
-python suzuki/suzuki_yield_prediction.py --paths_to_parsed_suzuki_data {PATH TO DATA 1} {PATH TO DATA 2}
+python suzuki_yield_prediction.py --paths_to_parsed_suzuki_data {PATH TO DATA 1} {PATH TO DATA 2}
                                          --split {nucleophile / electrophile}
                                          --save_path {PATH TO SAVE DIRECTORY}
 ```
@@ -62,10 +62,10 @@ Modules and code associated with the Buchwald-Hartwig yield predictions.
 * Module to run Crystal-Yield on Buchwald-Hartwig data.
 * Associated code for running comparisons with Yield-BERT and GraphRXN.
 
-To run a prediction with Crystal-Yield with HTE-style data, run the following command:
+To run a prediction with Crystal-Yield with HTE-style data, run the following command in the buchwald directory:
 
 ```
-python buchwald/buchwald_yield_prediction.py --path_to_buchwald_data {PATH TO CSV FILE}
+python buchwald_yield_prediction.py --path_to_buchwald_data {PATH TO CSV FILE}
                                              --split {halide / base / ligand / additive}
                                              --test_mol_idx {INTEGER FROM 0-3 if split == halide, ligand, additive / INTEGER FROM 0-2 if split == base}
                                              --save_path {PATH TO SAVE DIRECTORY}
@@ -85,10 +85,10 @@ Modules and code associated with multiclass and multilabel odor class prediction
 * Module to run Crystal-Olfaction on Pyrfume data.
 * Module to run Crystal-Olfaction on enantiomeric pairs.
 
-To run a prediction with Crystal-Olfaction with Pyrfume-style data, run the following command:
+To run a prediction with Crystal-Olfaction with Pyrfume-style data, run the following command in the fragrance directory:
 
 ```
-python fragrance/predict_fragrance.py --path_to_fragrance_data {PATH TO PYRFUME-STYLE PICKLE FILE}
+python predict_fragrance.py --path_to_fragrance_data {PATH TO PYRFUME-STYLE PICKLE FILE}
                                       --fold {INTEGER FROM 0-4}
                                       --save_path {PATH TO SAVE DIRECTORY}
 ```
